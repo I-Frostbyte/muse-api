@@ -9,18 +9,18 @@ import deleteEvent from "../controllers/event/delete"
 const router = express.Router()
 
 // GET a single event
-router.get("/events/:id", getOneEvent)
+router.get("/:id", getOneEvent)
 
 // GET all events
-router.get("/events", getAllEvents)
+router.get("/", getAllEvents)
 
 // CREATE a new event
-router.post("/events", createEvent)
+router.post("/", createEvent)
 
 // UPDATE an event
-router.patch("/events/:id", updateEvent)
+router.patch("/:id", updateEvent)
 
 // DELETE an event
-router.delete("/events/:id", deleteEvent)
+router.delete("/:id", deleteEvent)
 
 export default router;

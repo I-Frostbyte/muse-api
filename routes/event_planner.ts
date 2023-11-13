@@ -9,18 +9,18 @@ import deletePlanner from "../controllers/event_planner/delete"
 const router = express.Router()
 
 // GET a single planner
-router.get("/planners/:id", getOnePlanner)
+router.get("/:id", getOnePlanner)
 
 // GET all planners
-router.get("/planners", getAllPlanners)
+router.get("/", getAllPlanners)
 
 // CREATE a new planner
-router.post("/planners", createPlanner)
+router.post("/", createPlanner)
 
 // UPDATE an planner
-router.patch("/planners/:id", updatePlanner)
+router.patch("/:id", updatePlanner)
 
 // DELETE an planner
-router.delete("/planners/:id", deletePlanner)
+router.delete("/:id", deletePlanner)
 
 export default router;

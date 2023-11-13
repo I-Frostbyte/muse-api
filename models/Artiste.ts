@@ -30,7 +30,7 @@ const ArtisteSchema = new mongoose.Schema({
     }],
 	events: [{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: "Events"
+		ref: "Event"
 	}],
 	availability: {
 		type: Boolean,

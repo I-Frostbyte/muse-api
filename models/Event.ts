@@ -4,9 +4,9 @@ import bcrypt from 'bcrypt';
 
 const EventSchema = new mongoose.Schema({
     title: String,
-    Venue: String,
-    Date: Date,
-    Tickets: String,
+    venue: String,
+    date: String,
+    tickets: String,
 }, {
     timestamps: true, toJSON: { virtuals: true}, toObject: { virtuals: true}
 });
