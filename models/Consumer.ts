@@ -67,20 +67,20 @@ ConsumerSchema.plugin(uniqueValidator, {
   message: "{PATH} {VALUE} is already in use, please try another",
 });
 
-ConsumerSchema.pre("save", async function (next) {
-  try {
-    if (!this.isModified("password")) {
-      return next();
-    }
+// ConsumerSchema.pre("save", async function (next) {
+//   try {
+//     if (!this.isModified("password")) {
+//       return next();
+//     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(this.password, salt);
-    this.password = hashedPassword;
-    next();
-  } catch (error: any) {
-    return next(error);
-  }
-});
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(this.password, salt);
+//     this.password = hashedPassword;
+//     next();
+//   } catch (error: any) {
+//     return next(error);
+//   }
+// });
 
 // ConsumerSchema.pre("save", async function (next) {
 //   const consumer = this;
