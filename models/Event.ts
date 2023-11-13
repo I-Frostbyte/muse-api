@@ -21,6 +21,12 @@ EventSchema.virtual("artistes", {
     localField: "_id",
 })
 
+EventSchema.virtual("planners", {
+    ref: "Planner",
+    foreignField: "events",
+    localField: "_id",
+})
+
 const Event = mongoose.model("Event", EventSchema);
 
 export default Event;
