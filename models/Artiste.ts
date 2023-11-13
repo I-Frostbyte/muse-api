@@ -9,10 +9,9 @@ const ArtisteSchema = new mongoose.Schema({
 		type: String,
 		required: [true, 'phone number field is required'],
 	},
-	genres: {
-		type: [String],
-		required: [true, 'genres field is required'],
-	},
+	genres: [{
+		type: String,
+	}],
 	location: {
 		type: String,
 		required: [true, 'state field is required'],
@@ -29,14 +28,21 @@ const ArtisteSchema = new mongoose.Schema({
         type: String,
         required: false,
     }],
-	shows: {
-		type: [String],
-		required: false,
-	},
-	seekingVenues: {
+	events: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Events"
+	}],
+	availability: {
 		type: Boolean,
-		required: false,
+		default: true,
 	},
+}, {
+	timestamps: true
 });
+
+// ArtisteSchema.pre("findOne", function (next) {
+// 	this.populate("events");
+// 	next();
+// })
 
 export const Artiste = mongoose.model('Artiste', ArtisteSchema);

@@ -27,6 +27,10 @@ PlannerSchema.plugin(uniqueValidator, {
     message: "{PATH} {VALUE} is already in use, please try another",
 });
 
+// PlannerSchema.pre("findOne", function(next) {
+//     this.populate('events');
+// })
+
 const Planner = mongoose.model("Planner", PlannerSchema);
 
 export default Planner;
