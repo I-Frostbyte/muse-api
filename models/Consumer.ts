@@ -34,14 +34,14 @@ const ConsumerSchema = new mongoose.Schema(
       min: 2,
       max: 100,
       required: true,
-      unique: true,
+      // unique: true,
     },
     email: {
       type: String,
       min: 2,
       max: 100,
       required: true,
-      unique: true,
+      // unique: true,
     },
     password: {
       type: String,
@@ -51,9 +51,9 @@ const ConsumerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    aristeIds: [
+    artisteIds: [
       {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Artiste",
       },
     ],
@@ -81,6 +81,20 @@ ConsumerSchema.pre("save", async function (next) {
     return next(error);
   }
 });
+
+// ConsumerSchema.pre("save", async function (next) {
+//   const consumer = this;
+
+//   // Push the new followed artist into the followedArtists array
+//   if (consumer.isModified('followedArtists') && consumer.artisteIds.length > 0) {
+//     this.artisteIds.forEach((artisteId) => {
+//       consumer.artisteIds.push(artisteId)
+//     })
+//     // consumer.artisteIds.push(consumer.artisteIds[0]);
+//   }
+
+//   next();
+// })
 
 const Consumer = mongoose.model("Consumer", ConsumerSchema);
 

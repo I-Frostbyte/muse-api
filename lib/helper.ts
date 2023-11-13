@@ -24,15 +24,15 @@ export const updateOne = (Model: Model<any>, params: string[]) =>
   catchAsync(async (req: Request, res: any) => {
     const id = res?.query?.id;
     let body: Partial<Record<string, any>> = {};
-    params.forEach((param) => (body[param] = req.body[param] || null));
-    const updatedDoc = await Model.findByIdAndUpdate(id, body, {
-      new: true,
-      runValidators: true,
-    });
-    res.status(200).json({
-      status: "OK",
-      data: updatedDoc,
-    });
+      params.forEach((param) => (body[param] = req.body[param] || null));
+      const updatedDoc = await Model.findByIdAndUpdate(id, body, {
+        new: true,
+        runValidators: true,
+      });
+      res.status(200).json({
+        status: "OK",
+        data: updatedDoc,
+      });
   });
 
 export const createOne = (Model: Model<any>, params: string[]) =>
